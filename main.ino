@@ -1,6 +1,11 @@
 #include <Servo.h>
+#include <IRremote.h>
 
+IRrecv irrecv(13);
+decode_results results;
 Servo servo1, servo2;
+
+int i = 0;
 
 void mouth(int angle1, int angle2, int seconds1, int seconds2)
 {
@@ -20,12 +25,27 @@ void mouth(int angle1, int angle2, int seconds1, int seconds2)
 
 void setup()
 {
-  servo1.attach(10);
-  servo2.attach(6);
+  Serial.begin(9600);
+  irrecv.enableIRIn();
+  servo1.attach(8);
+  servo2.attach(9);
 }
 
 void loop()
 {
-  mouth(45, 150, 3, 6);
-  delay(1500);
+  if (irrecv.decode(&results) == true)
+  {
+    Serial.println(results.value);
+  }
+  switch (results.value)
+  {
+    case 0xFF30CF :
+      while (i < 10)
+      {
+        mouth(45, 150, 3, 6);
+        delay(1500);
+        i++;
+      }
+  }
+  irrecv.resume();
 }
