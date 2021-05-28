@@ -48,7 +48,6 @@ void loop()
           i++;
         }
         else
-          i = 0;
           break;
       }
   }
