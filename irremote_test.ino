@@ -1,18 +1,14 @@
 #include <IRremote.h>
 
-int RECV_PIN = 11;
-int LED_PIN1 = 12;
-int LED_PIN2 = 13;
-
-IRrecv irrecv(RECV_PIN);
+IRrecv irrecv(11);
 decode_results results;
 
 void setup()
 {
   Serial.begin(9600);
   irrecv.enableIRIn();
-  pinMode(LED_PIN1, OUTPUT);
-  pinMode(LED_PIN2, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
 }
 
 void loop()
