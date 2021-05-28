@@ -28,7 +28,7 @@ void loop()
     case 0xFF18E7 : digitalWrite(LED_PIN1, LOW); break;
     case 0xFF7A85 : digitalWrite(LED_PIN2, HIGH); break;
     case 0xFF10EF : digitalWrite(LED_PIN2, LOW); break;
-    case 0xFF5AA5 :
+    case 0xFF38C7 :
       while (i < 6)
       {
         if (i != 5)
