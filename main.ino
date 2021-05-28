@@ -21,7 +21,7 @@ void mouth(int angle1, int angle2, int seconds1, int seconds2)
 void setup()
 {
   servo1.attach(10);
-  servo2.attach(5);
+  servo2.attach(6);
 }
 
 void loop()
