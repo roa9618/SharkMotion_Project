@@ -46,6 +46,7 @@ void loop()
         delay(1500);
         i++;
       }
+      break;
   }
   irrecv.resume();
 }
