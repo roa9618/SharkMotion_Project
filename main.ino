@@ -5,8 +5,6 @@ IRrecv irrecv(13);
 decode_results results;
 Servo servo1, servo2;
 
-int i = 0;
-
 void mouth(int angle1, int angle2, int seconds1, int seconds2)
 {
   for (int i = angle1; i <= angle2; i++)
@@ -27,15 +25,16 @@ void setup()
 {
   Serial.begin(9600);
   irrecv.enableIRIn();
-  servo1.attach(8);
-  servo2.attach(9);
+  servo1.attach(10);
+  servo2.attach(6);
 }
 
 void loop()
 {
+  int i = 0;
   if (irrecv.decode(&results) == true)
   {
-    Serial.println(results.value);
+    Serial.println(results.value, HEX);
   }
   switch (results.value)
   {
