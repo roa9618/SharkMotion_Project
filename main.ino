@@ -34,18 +34,17 @@ void loop()
   int i = 0;
   if (irrecv.decode(&results) == true)
   {
-    Serial.println(results.value, HEX);
-  }
-  switch (results.value)
-  {
-    case 0xFF30CF :
-      while (i < 10)
-      {
-        mouth(45, 150, 3, 6);
-        delay(1500);
-        i++;
-      }
-      break;
+    switch (results.value)
+    {
+      case 0xFF30CF :
+        while(i < 10)
+        {
+          mouth(45, 150, 3, 6);
+          delay(1500);
+          i++;
+        }
+        break;
+    }
   }
   irrecv.resume();
 }
