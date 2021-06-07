@@ -3,7 +3,7 @@
 
 IRrecv irrecv(13);
 decode_results results;
-Servo servo1, servo3;
+Servo servo1, servo2;
 
 void mouth(int angle1, int angle2, int seconds1, int seconds2)
 {
@@ -23,13 +23,13 @@ void tail(int angle1, int angle2, int seconds)
 {
   for (int i = angle1; i < angle2; i++)
   {
-    servo3.write(i);
+    servo2.write(i);
     delay(seconds);
   }
 
   for (int i = angle2; i > angle1; i--)
   {
-    servo3.write(i);
+    servo2.write(i);
     delay(seconds);
   }
 }
@@ -39,7 +39,7 @@ void setup()
   Serial.begin(9600);
   irrecv.enableIRIn();
   servo1.attach(10);
-  servo3.attach(6);
+  servo2.attach(6);
 }
 
 void loop()
